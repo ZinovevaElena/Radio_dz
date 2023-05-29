@@ -5,6 +5,26 @@ import org.junit.jupiter.api.Test;
 
 class RadioTest {
 
+    @Test
+    public void testRadioTotal() {
+        Radio service = new Radio(10);
+        Assertions.assertEquals(10, service.getExcessNumberStation());
+    }
+
+    @Test
+    public void testRadioMaxStation() {
+        Radio service = new Radio();
+        service.getMaxStation();
+        Assertions.assertEquals(9, service.getMaxStation());
+    }
+
+    @Test
+    public void testRadioMinStation() {
+        Radio service = new Radio();
+        service.getMinStation();
+        Assertions.assertEquals(0, service.getMinStation());
+    }
+
     // Радиостанции
     @Test
     public void shouldRadioStation() { // установка станции +
