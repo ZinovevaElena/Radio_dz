@@ -196,4 +196,13 @@ class RadioTest {
         int actual = service.getCurrentVolumeSound();
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void createRadio20Station() {
+        Radio service = new Radio(20);
+        service.setNewNumberRadio(15);
+        int expected = 15;
+        int actual = service.getNewNumberRadio();
+        Assertions.assertEquals(expected,actual);
+    }
 }
