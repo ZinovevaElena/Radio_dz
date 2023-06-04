@@ -5,6 +5,26 @@ import org.junit.jupiter.api.Test;
 
 class RadioTest {
 
+    @Test
+    public void testRadioTotal() {
+        Radio service = new Radio(10);
+        Assertions.assertEquals(10, service.getExcessNumberStation());
+    }
+
+    @Test
+    public void testRadioMaxStation() {
+        Radio service = new Radio();
+        service.getMaxStation();
+        Assertions.assertEquals(9, service.getMaxStation());
+    }
+
+    @Test
+    public void testRadioMinStation() {
+        Radio service = new Radio();
+        service.getMinStation();
+        Assertions.assertEquals(0, service.getMinStation());
+    }
+
     // Радиостанции
     @Test
     public void shouldRadioStation() { // установка станции +
@@ -162,7 +182,7 @@ class RadioTest {
         Radio service = new Radio();
         service.setCurrentVolumeSound(100);
         service.increaseVolumeSound();
-        int expected = 0;
+        int expected = 100;
         int actual = service.getCurrentVolumeSound();
         Assertions.assertEquals(expected, actual);
     }
@@ -172,8 +192,17 @@ class RadioTest {
         Radio service = new Radio();
         service.setCurrentVolumeSound(0);
         service.reduceVolumeSound();
-        int expected = 100;
+        int expected = 0;
         int actual = service.getCurrentVolumeSound();
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void createRadio20Station() {
+        Radio service = new Radio(20);
+        service.setNewNumberRadio(15);
+        int expected = 15;
+        int actual = service.getNewNumberRadio();
+        Assertions.assertEquals(expected,actual);
     }
 }
